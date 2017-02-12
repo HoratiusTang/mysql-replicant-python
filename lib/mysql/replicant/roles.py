@@ -77,9 +77,11 @@ class Role(object):
             pass
 
     def imbue(self, server):
+        """assgin this role to server."""
         pass
 
     def unimbue(self, server):
+        """invoke before imbue(), used to clear sth of old role."""
         pass
 
 class Vagabond(Role):
@@ -133,7 +135,7 @@ class Master(Role):
         finally:
             server.start()
             
-        # Add a replication user
+        # Add a replication user, slaves will connect to master by this account
         self._create_repl_user(server, self.__user)
         server.repl_user = self.__user
         server.disconnect()
